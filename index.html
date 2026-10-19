@@ -1,0 +1,951 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ryan Tchuisseu</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Ryan Tchuisseu — Ingénieur Data & IA. Agents IA en production, détection de fraude, automatisation et sites web.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: dark editorial page, giant condensed type, one lime accent, a single light "paper" band for the work index. */
+:root{
+  --bg:#0b0c0a; --bg-2:#131411; --ink:#eeefe8; --mut:#8d8f86; --line:#262822;
+  --acc:#c8ff3e; --acc-ink:#0b0c0a; --paper:#eeefe8; --paper-ink:#0b0c0a; --paper-mut:#6d6f67; --paper-line:#cfd0c7;
+  --wa:#25d366;
+  --f-disp:"Anton","Oswald","Impact",sans-serif;
+  --f-body:"Geist","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,Menlo,monospace;
+  --gut:max(16px, env(safe-area-inset-left, 0px));
+  --gut-r:max(16px, env(safe-area-inset-right, 0px));
+  --pad:clamp(20px, 4vw, 56px);
+  --ease:cubic-bezier(.22,1,.36,1);
+  color-scheme:dark;
+}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{overflow-x:clip}
+main,.contact,.xp{overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+img,video{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
+.wrap{padding-left:max(var(--pad),var(--gut));padding-right:max(var(--pad),var(--gut))}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.disp{font-family:var(--f-disp);font-weight:400;text-transform:uppercase;line-height:.88;letter-spacing:-.005em;margin:0}
+.acc{color:var(--acc)}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pill{display:inline-flex;align-items:center;gap:10px;border:1px solid #3a3c35;border-radius:999px;padding:11px 18px;font-size:14px;line-height:1;transition:background .3s var(--ease),color .3s var(--ease),border-color .3s}
+.pill:hover{border-color:var(--ink)}
+.pill.solid{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pill.solid:hover{background:var(--acc);border-color:var(--acc);color:var(--acc-ink)}
+.pill.lime{background:var(--acc);color:var(--acc-ink);border-color:var(--acc);font-weight:500}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px rgba(200,255,62,.16);flex:none;animation:pulse 2.4s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(200,255,62,0)}}
+.arrow{width:1em;height:1em;flex:none}
+
+/* NAV */
+.nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px;transition:background .4s,backdrop-filter .4s,transform .5s var(--ease)}
+.nav.scrolled{background:rgba(11,12,10,.88);backdrop-filter:blur(12px)}
+.nav.hide{transform:translateY(-110%)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:500;font-size:15px}
+.brand b{width:34px;height:34px;border-radius:9px;background:var(--acc);color:var(--acc-ink);display:grid;place-items:center;font:400 15px var(--f-disp);letter-spacing:.02em}
+.brand .mono{font-size:11px}
+.nav-links{display:flex;gap:30px;font-size:14px;color:var(--mut)}
+.nav-links a{position:relative;transition:color .3s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--acc);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-r{display:flex;align-items:center;gap:10px}
+.lang{display:flex;border:1px solid #3a3c35;border-radius:999px;padding:3px;font:500 12px var(--f-mono)}
+.lang button{padding:7px 10px;border-radius:999px;color:var(--mut);transition:.3s}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.menu-btn{display:none}
+.sheet{position:fixed;inset:0;z-index:49;background:var(--bg);display:flex;flex-direction:column;justify-content:center;gap:8px;padding-top:80px}
+.sheet a{font:400 clamp(48px,14vw,80px)/1 var(--f-disp);text-transform:uppercase}
+.sheet a:hover{color:var(--acc)}
+
+/* HERO */
+.hero{position:relative;min-height:min(100svh,940px);min-height:max(680px,min(100svh,940px));overflow:hidden;isolation:isolate}
+.hero::after{content:"";position:absolute;inset:0;z-index:6;pointer-events:none;opacity:.08;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.ring{position:absolute;border:1px solid var(--line);border-radius:50%;left:50%;z-index:0;pointer-events:none}
+.ring.r1{width:min(1000px,120vw);aspect-ratio:1;top:-14%;transform:translateX(-50%)}
+.ring.r2{width:min(640px,86vw);aspect-ratio:1;top:6%;transform:translateX(-50%);border-style:dashed;border-color:#2f322a}
+.halo{position:absolute;left:50%;top:14%;width:min(720px,110vw);aspect-ratio:1;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(200,255,62,.20),rgba(200,255,62,.06) 55%,transparent);z-index:1;pointer-events:none}
+.hero-name{position:absolute;left:0;bottom:6%;z-index:1;white-space:nowrap;font-size:clamp(110px,23vw,370px);will-change:transform;pointer-events:none}
+.hero-name.front{z-index:3;color:transparent;-webkit-text-stroke:1px rgba(238,239,232,.42)}
+.hero-name .o{color:transparent;-webkit-text-stroke:2px var(--ink)}
+.hero-name.front .o{-webkit-text-stroke:0}
+.portrait{position:absolute;left:50%;bottom:0;transform:translateX(-50%);z-index:2;width:min(520px,62vw);height:min(86%,780px);display:flex;align-items:flex-end;justify-content:center}
+.portrait img{height:100%;width:auto;object-fit:contain;object-position:bottom;filter:grayscale(1) contrast(1.12) brightness(.9);-webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 98%);mask-image:linear-gradient(to bottom,#000 62%,transparent 98%);transition:filter 1.2s var(--ease)}
+.hero:hover .portrait img{filter:grayscale(0) contrast(1.04) brightness(.98)}
+.hero-l{position:absolute;left:max(var(--pad),var(--gut));top:clamp(110px,16vh,170px);z-index:4;max-width:400px}
+.hero-l h2{font-weight:400;font-size:clamp(22px,2.1vw,30px);line-height:1.22;margin:14px 0 26px;text-wrap:balance}
+.hero-l h2 em{font-style:normal;color:var(--acc)}
+.ctas{display:flex;flex-wrap:wrap;gap:10px}
+.loc{margin-top:22px}
+.hero-r{position:absolute;right:max(var(--pad),var(--gut-r));top:clamp(110px,16vh,170px);z-index:4;width:270px;display:flex;flex-direction:column;gap:10px}
+.kpi{border:1px solid var(--line);background:rgba(19,20,17,.78);backdrop-filter:blur(6px);border-radius:14px;padding:14px 16px}
+.kpi strong{font:400 34px/1 var(--f-disp);display:block;color:var(--acc);letter-spacing:.01em}
+.kpi span{font-size:13px;color:var(--mut);display:block;margin-top:6px;line-height:1.35}
+.scroll-cue{position:absolute;right:max(var(--pad),var(--gut-r));bottom:calc(6% + clamp(110px,23vw,370px)*.92);z-index:4;display:flex;align-items:center;gap:10px}
+.scroll-cue i{width:1px;height:40px;background:linear-gradient(var(--acc),transparent);display:block}
+
+/* MARQUEE */
+.marq{background:var(--acc);color:var(--acc-ink);overflow:hidden;transform:rotate(-1.4deg);margin:-8px -24px 0;position:relative;z-index:8;padding-block:16px}
+.marq-track{display:flex;width:max-content;animation:marq 28s linear infinite}
+.marq-track span{font:400 clamp(30px,3.6vw,52px)/1 var(--f-disp);text-transform:uppercase;padding:0 22px;display:flex;align-items:center;gap:44px;white-space:nowrap}
+.marq-track span::after{content:"✦";font-size:.6em}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* SECTION HEADS */
+section{position:relative}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.sec-title{font-size:clamp(76px,12vw,180px)}
+.sec-title .sl{color:var(--acc)}
+.reveal-line{overflow:hidden;display:block}
+.reveal-line>span{display:block}
+
+/* ABOUT */
+.about{padding-block:clamp(100px,14vw,180px) clamp(80px,10vw,140px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(32px,5vw,80px);align-items:end}
+.about .big{font-size:clamp(24px,2.5vw,36px);line-height:1.28;font-weight:300;margin:0;text-wrap:pretty}
+.about .big .w{transition:color .2s}
+.js .about .big .w{color:#3a3c35}
+.js .about .big .w.on{color:var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:44px}
+.stats div{border-top:1px solid var(--line);padding-top:14px}
+.stats strong{font:400 clamp(40px,4.4vw,60px)/1 var(--f-disp);display:block;font-variant-numeric:tabular-nums}
+.stats .mono{display:block;margin-top:8px;font-size:11px}
+
+/* WORK */
+.work{background:var(--paper);color:var(--paper-ink);padding-block:clamp(90px,10vw,140px) clamp(70px,8vw,110px);border-radius:28px 28px 0 0;margin-top:-28px;position:relative;z-index:2}
+.work .mono{color:var(--paper-mut)}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{border:1px solid var(--paper-ink);border-radius:999px;padding:9px 16px;font-size:13px;transition:.3s}
+.filters button[aria-pressed="true"],.filters button:hover{background:var(--paper-ink);color:var(--paper)}
+.list{margin-top:48px;border-bottom:1px solid var(--paper-line)}
+.row{display:grid;grid-template-columns:56px minmax(0,1fr) auto 44px;gap:16px;align-items:center;border-top:1px solid var(--paper-line);padding-block:24px;cursor:pointer;width:100%;text-align:left;position:relative}
+.row .num{font:500 12px var(--f-mono);color:var(--paper-mut)}
+.row .t{font:400 clamp(34px,4.6vw,68px)/1 var(--f-disp);text-transform:uppercase;transition:transform .6s var(--ease),color .4s}
+.row .sub{font-size:13px;color:var(--paper-mut);margin-top:8px;transition:transform .6s var(--ease)}
+.row .res{font:400 clamp(20px,2.2vw,32px)/1 var(--f-disp);text-transform:uppercase;text-align:right;white-space:nowrap}
+.row .go{width:44px;height:44px;border-radius:50%;border:1px solid var(--paper-line);display:grid;place-items:center;transition:.4s var(--ease)}
+.row .badge{display:inline-block;font:500 10px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;background:var(--paper-ink);color:var(--paper);border-radius:4px;padding:3px 6px;margin-left:8px;vertical-align:middle}
+.list:hover .row .t{color:#b9bab1}
+.list .row:hover .t,.list .row:focus-visible .t{color:var(--paper-ink);transform:translateX(18px)}
+.list .row:hover .sub{transform:translateX(18px)}
+.list .row:hover .go{background:var(--paper-ink);color:var(--acc);border-color:var(--paper-ink);transform:rotate(-45deg)}
+.row[hidden]{display:none}
+.preview{position:fixed;left:0;top:0;width:340px;aspect-ratio:16/10;border-radius:14px;overflow:hidden;z-index:40;pointer-events:none;opacity:0;transform:translate(-50%,-50%) scale(.6) rotate(-6deg);box-shadow:0 30px 70px rgba(0,0,0,.35);background:var(--bg)}
+.preview>*{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tcard{background:var(--bg);color:var(--ink);display:flex;flex-direction:column;justify-content:space-between;padding:18px}
+.tcard strong{font:400 64px/.9 var(--f-disp);color:var(--acc);text-transform:uppercase}
+.tcard.lime{background:var(--acc);color:var(--acc-ink)}
+.tcard.lime strong{color:var(--acc-ink)}
+.all{display:flex;justify-content:center;margin-top:40px}
+
+/* METHOD */
+.method{padding-block:clamp(100px,12vw,160px)}
+.method-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,5vw,70px);align-items:center;margin-top:36px}
+.steps{display:flex;flex-direction:column}
+.step-w{font:400 clamp(60px,8.6vw,132px)/.95 var(--f-disp);text-transform:uppercase;color:#2a2c26;transition:color .5s var(--ease);display:flex;align-items:center;gap:18px;white-space:nowrap}
+.step-w i{font:500 12px var(--f-mono);font-style:normal;color:var(--mut)}
+.step-w.on{color:var(--ink)}
+.step-w.on i{color:var(--acc)}
+.panel{background:var(--bg-2);border:1px solid var(--line);border-radius:22px;min-height:470px;padding:clamp(24px,3vw,40px);display:grid}
+.pane{grid-area:1/1;display:flex;flex-direction:column;justify-content:space-between;gap:28px;opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s}
+.pane.on{opacity:1;visibility:visible}
+.pane p{font-size:clamp(17px,1.4vw,20px);line-height:1.5;color:#c4c5bd;margin:0;max-width:52ch}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13px}
+.flow span{border:1px solid #33352e;background:#1a1b17;border-radius:10px;padding:11px 13px}
+.flow span.h{border-color:var(--acc);color:var(--acc)}
+.flow i{font-style:normal;color:#55574f}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font:500 12px var(--f-mono);background:#1d1f1a;color:#c4c5bd;border-radius:6px;padding:7px 10px}
+.bigs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.bigs div{border-top:1px solid var(--line);padding-top:12px}
+.bigs strong{font:400 clamp(30px,3vw,44px)/1 var(--f-disp);color:var(--acc);display:block}
+.bigs span{font-size:12px;color:var(--mut)}
+
+/* STUDIO */
+.studio{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(24px,4vw,56px);align-items:center;background:var(--paper);color:var(--paper-ink);border-radius:24px;padding:clamp(24px,3vw,40px)}
+.studio img{width:clamp(130px,14vw,200px);height:auto;border-radius:14px;background:#fff}
+.studio h3{font:400 clamp(32px,3.6vw,54px)/.95 var(--f-disp);text-transform:uppercase;margin:6px 0 10px}
+.studio p{margin:0;color:#45473f;max-width:60ch}
+.studio .mono{color:var(--paper-mut)}
+
+/* XP */
+.xp{padding-block:clamp(100px,12vw,160px)}
+.xp-bg{position:absolute;top:clamp(60px,8vw,110px);left:0;font-size:clamp(120px,19vw,300px);color:#151612;z-index:0;white-space:nowrap;pointer-events:none}
+.xp .sec-head{position:relative;z-index:1}
+.xlist{margin-top:40px;position:relative;z-index:1;border-bottom:1px solid var(--line)}
+.xrow{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) 190px;gap:20px;border-top:1px solid var(--line);padding-block:22px;transition:background .4s,padding .4s var(--ease)}
+.xrow:hover{background:linear-gradient(90deg,rgba(200,255,62,.05),transparent);padding-left:14px}
+.xrow b{font-weight:500;display:block}
+.xrow .r{color:var(--mut);font-size:14px}
+.xrow .d{text-align:right;color:var(--mut);font:500 13px var(--f-mono);font-variant-numeric:tabular-nums}
+.xrow .chips span{background:#1a1b17}
+
+/* CONTACT */
+.contact{padding-block:clamp(100px,12vw,160px) 28px;border-top:1px solid var(--line)}
+.contact-top{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;margin-top:20px}
+.contact h2{font-size:clamp(64px,9vw,140px);display:flex;align-items:center;gap:clamp(14px,2vw,30px)}
+.contact h2 svg{width:.9em;height:.9em;color:var(--acc);flex:none}
+.ways{display:flex;flex-direction:column;gap:10px;width:min(100%,380px)}
+.way{display:flex;justify-content:space-between;align-items:center;gap:14px;border:1px solid #3a3c35;border-radius:16px;padding:18px 20px;font-size:15px;transition:.35s var(--ease)}
+.way:hover{border-color:var(--ink);transform:translateX(-4px)}
+.way.wa{background:var(--wa);border-color:var(--wa);color:#04210f;font-weight:500}
+.way small{display:block;font-size:12px;opacity:.7;font-weight:400}
+.way .copy{font:500 11px var(--f-mono);text-transform:uppercase;letter-spacing:.06em;border:1px solid #3a3c35;border-radius:999px;padding:6px 10px;color:var(--mut)}
+.foot-name{font-size:clamp(52px,13vw,250px);margin-top:clamp(60px,8vw,110px);white-space:nowrap;letter-spacing:-.01em}
+.foot-name span{display:inline-block}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:22px}
+.foot a:hover{color:var(--ink)}
+
+/* CASE STUDY */
+.case{position:fixed;inset:0;z-index:70;background:var(--bg);overflow-y:auto;overscroll-behavior:contain;visibility:hidden;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.case.open{visibility:visible}
+.case-bar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;padding-block:16px;background:rgba(11,12,10,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.case-hero{padding-block:clamp(50px,7vw,90px) 40px}
+.case-hero h2{font-size:clamp(56px,9vw,150px);margin-top:16px;text-wrap:balance}
+.case-hero .hook{font-size:clamp(20px,2vw,28px);font-weight:300;max-width:34ch;margin:24px 0 0;line-height:1.3}
+.meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:44px}
+.meta div{border-top:1px solid var(--line);padding-top:12px;min-width:0}
+.meta b{display:block;font-weight:400;margin-top:6px;font-size:15px}
+.case-media{margin-block:20px 10px;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--bg-2)}
+.case-media img,.case-media video{width:100%;height:auto}
+.case-media .cap{padding:12px 16px;border-top:1px solid var(--line)}
+.case-body{display:grid;grid-template-columns:220px minmax(0,1fr);gap:clamp(20px,4vw,60px);padding-block:50px;border-top:1px solid var(--line)}
+.case-body h3{font:500 13px var(--f-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--acc);margin:4px 0 0}
+.case-body p{font-size:clamp(17px,1.35vw,20px);line-height:1.6;color:#d3d4cc;margin:0 0 16px;max-width:66ch}
+.case-body ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:16px;max-width:70ch}
+.case-body li{font-size:clamp(16px,1.25vw,19px);line-height:1.55;color:#d3d4cc;padding-left:28px;position:relative}
+.case-body li::before{content:"";position:absolute;left:0;top:.62em;width:14px;height:1px;background:var(--acc)}
+.case-body li b{color:var(--ink);font-weight:500}
+.results{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.results div{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:22px}
+.results strong{font:400 clamp(38px,4vw,58px)/1 var(--f-disp);color:var(--acc);display:block;text-transform:uppercase}
+.results span{display:block;margin-top:10px;color:#c4c5bd;font-size:14px;line-height:1.45}
+.next{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding-block:60px 80px;border-top:1px solid var(--line);width:100%;text-align:left}
+.next .disp{font-size:clamp(44px,7vw,110px);transition:color .4s}
+.next:hover .disp{color:var(--acc)}
+.diagram{padding:clamp(16px,3vw,36px)}
+.diagram svg{width:100%;height:auto}
+.typo-media{padding:clamp(24px,5vw,70px);display:flex;flex-direction:column;gap:24px}
+.typo-media strong{font:400 clamp(70px,13vw,200px)/.85 var(--f-disp);color:var(--acc);text-transform:uppercase}
+.typo-media p{margin:0;color:var(--mut);max-width:50ch}
+
+/* INTRO */
+.intro{position:fixed;inset:0;z-index:100;background:#000;display:grid;place-items:center}
+.intro p{font:500 15px var(--f-body);letter-spacing:.02em;margin:0;display:flex;gap:10px;align-items:center;color:var(--ink)}
+.intro .count{position:absolute;right:max(var(--pad),var(--gut-r));bottom:max(28px,env(safe-area-inset-bottom,0px));font:400 clamp(60px,10vw,140px)/1 var(--f-disp);color:var(--acc);font-variant-numeric:tabular-nums}
+
+/* RESPONSIVE */
+@media (max-width:1100px){
+  .hero-r{width:220px}.kpi strong{font-size:28px}
+  .nav-links{gap:20px}
+}
+@media (max-width:900px){
+  .nav-links,.nav .pill.status{display:none}
+  .menu-btn{display:inline-flex}
+  .hero{min-height:0;padding-top:110px;display:flex;flex-direction:column}
+  .hero-l,.hero-r{position:relative;left:auto;right:auto;top:auto;max-width:none;width:auto;padding-left:max(var(--pad),var(--gut));padding-right:max(var(--pad),var(--gut-r))}
+  .hero-r{flex-direction:row;overflow-x:auto;order:3;margin-top:22px;padding-bottom:30px;scrollbar-width:none}
+  .hero-r .kpi{min-width:200px}
+  .stage{position:relative;height:clamp(420px,110vw,620px);order:2;margin-top:20px}
+  .portrait{width:min(440px,86vw);height:100%}
+  .hero-name{bottom:9%}
+  .scroll-cue{display:none}
+  .about{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .row{grid-template-columns:36px minmax(0,1fr) 40px}
+  .row .res{grid-column:2;text-align:left;font-size:22px}
+  .row .go{grid-row:1;grid-column:3;width:40px;height:40px}
+  .method-grid{grid-template-columns:1fr}
+  .studio{grid-template-columns:1fr}
+  .xrow{grid-template-columns:1fr}
+  .xrow .d{text-align:left;order:-1}
+  .meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .case-body{grid-template-columns:1fr;gap:18px}
+  .preview{display:none}
+}
+@media (min-width:901px){.stage{position:absolute;inset:0}}
+@media (max-width:520px){
+  .brand .mono{display:none}
+  .nav .pill.solid{display:none}
+  .bigs{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  .js .about .big .w{color:var(--ink)}
+}
+</style>
+
+<header class="nav wrap" id="nav">
+  <a class="brand" href="#top" aria-label="Ryan Tchuisseu, accueil"><b>RT</b><span>Ryan Tchuisseu</span><span class="mono" data-i18n="nav.role">/ Ingénieur Data &amp; IA</span></a>
+  <nav class="nav-links" aria-label="Principale">
+    <a href="#projets" data-i18n="nav.work">Projets</a>
+    <a href="#apropos" data-i18n="nav.about">À propos</a>
+    <a href="#methode" data-i18n="nav.method">Méthode</a>
+    <a href="#parcours" data-i18n="nav.xp">Parcours</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
+  </nav>
+  <div class="nav-r">
+    <span class="pill status"><span class="dot"></span><span data-i18n="nav.status">CDI &amp; freelance</span></span>
+    <div class="lang" role="group" aria-label="Langue / Language">
+      <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button type="button" class="pill menu-btn" id="menuBtn" aria-expanded="false" aria-controls="sheet" data-i18n="nav.menu">Menu</button>
+  </div>
+</header>
+<div class="sheet wrap" id="sheet" hidden>
+  <a href="#projets" data-i18n="nav.work">Projets</a>
+  <a href="#apropos" data-i18n="nav.about">À propos</a>
+  <a href="#methode" data-i18n="nav.method">Méthode</a>
+  <a href="#parcours" data-i18n="nav.xp">Parcours</a>
+  <a href="#contact" data-i18n="nav.contact">Contact</a>
+</div>
+
+<main id="top">
+<section class="hero" id="hero" aria-labelledby="heroName">
+  <div class="stage">
+    <div class="ring r1" aria-hidden="true"></div>
+    <div class="ring r2" aria-hidden="true"></div>
+    <div class="halo" aria-hidden="true"></div>
+    <h1 class="disp hero-name back" id="heroName"><span>Ryan </span><span class="o">Tchuisseu</span></h1>
+    <div class="portrait"><img src="assets/ryan.webp" width="768" height="921" alt="Portrait de Ryan Tchuisseu" data-i18n-alt="hero.alt" fetchpriority="high"></div>
+    <div class="disp hero-name front" aria-hidden="true"><span>Ryan </span><span class="o">Tchuisseu</span></div>
+  </div>
+  <div class="hero-l">
+    <div class="mono hero-in" data-i18n="hero.eyebrow">Ingénieur Data &amp; IA — EPF, titre CTI</div>
+    <h2 class="hero-in" data-i18n-html="hero.tagline">Je conçois des systèmes d’IA qui tournent <em>en production</em>, et j’en mesure les effets.</h2>
+    <div class="ctas hero-in">
+      <a class="pill solid cv-link" href="assets/cv-ryan-tchuisseu-fr.pdf" target="_blank" rel="noopener"><span data-i18n="hero.cta1">Je recrute</span> <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="pill" href="#contact"><span data-i18n="hero.cta2">J’ai un projet</span> <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+    <div class="mono loc hero-in" data-i18n="hero.loc">Yaoundé, Cameroun · France 2019–2024</div>
+  </div>
+  <div class="hero-r">
+    <div class="kpi hero-in"><strong data-i18n="kpi.1v">2 j → 1 h</strong><span data-i18n="kpi.1">Pour produire une offre aux Nations unies, avec 5 agents IA</span></div>
+    <div class="kpi hero-in"><strong>x14</strong><span data-i18n="kpi.2">Fréquence de publication d’une association, sans intervention humaine</span></div>
+    <div class="kpi hero-in"><strong>90 %</strong><span data-i18n="kpi.3">De la saisie comptable automatisée, validée par un humain</span></div>
+  </div>
+  <div class="scroll-cue mono" aria-hidden="true"><span data-i18n="hero.scroll">Défiler</span><i></i></div>
+</section>
+
+<div class="marq" aria-hidden="true"><div class="marq-track" id="marq"></div></div>
+
+<section class="about wrap" id="apropos" aria-labelledby="aboutT">
+  <div>
+    <div class="mono" data-i18n="about.k">À propos</div>
+    <h2 class="disp sec-title" id="aboutT"><span class="reveal-line"><span><span class="sl">/</span><span data-i18n="about.t">À propos</span></span></span></h2>
+  </div>
+  <div>
+    <p class="big" id="aboutText" data-i18n="about.p">Ingénieur Big Data formé en France, je construis des agents IA, des modèles de détection et des sites web pour des entreprises et des associations. Ma règle : l’humain garde la décision finale, et chaque projet se juge sur un chiffre, en heures gagnées ou en risques évités.</p>
+    <div class="stats">
+      <div><strong data-count="10">10</strong><span class="mono" data-i18n="stat.1">Projets</span></div>
+      <div><strong data-count="7">7</strong><span class="mono" data-i18n="stat.2">Modèles de fraude comparés</span></div>
+      <div><strong data-count="12">12</strong><span class="mono" data-i18n="stat.3">Personnes formées à l’IA</span></div>
+      <div><strong>FR/EN</strong><span class="mono" data-i18n="stat.4">Bilingue</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="work wrap" id="projets" aria-labelledby="workT">
+  <div class="sec-head">
+    <div><div class="mono" data-i18n="work.k">Projets sélectionnés</div><h2 class="disp sec-title" id="workT"><span class="reveal-line"><span data-i18n="work.t">Projets</span></span></h2></div>
+    <div class="filters" role="group" aria-label="Filtrer les projets" id="filters"></div>
+  </div>
+  <div class="list" id="list"></div>
+</section>
+
+<section class="method wrap" id="methode" aria-labelledby="methodT">
+  <div class="sec-head"><div><div class="mono" data-i18n="method.k">Comment je travaille</div><h2 class="disp sec-title" id="methodT"><span class="reveal-line"><span><span class="sl">/</span><span data-i18n="method.t">Méthode</span></span></span></h2></div></div>
+  <div class="method-grid" id="methodGrid">
+    <div class="steps" id="steps">
+      <div class="step-w on" data-step="0"><i>01</i><span data-i18n="m.1">Comprendre</span></div>
+      <div class="step-w" data-step="1"><i>02</i><span data-i18n="m.2">Automatiser</span></div>
+      <div class="step-w" data-step="2"><i>03</i><span data-i18n="m.3">Mesurer</span></div>
+    </div>
+    <div class="panel">
+      <div class="pane on" data-pane="0">
+        <div class="mono" data-i18n="m.1k">Étape 01 · Partir du métier</div>
+        <div class="chips"><span data-i18n="m.1c1">Statuts &amp; plan stratégique</span><span data-i18n="m.1c2">Entretiens métier</span><span data-i18n="m.1c3">Cahier des charges</span><span data-i18n="m.1c4">Scénarios de fraude</span></div>
+        <p data-i18n="m.1p">Avant d’écrire une ligne de code, je formalise le processus réel. Pour Stroke Action, le cahier des charges vient des statuts et du plan stratégique 2026-2030. Chez ASCOMA, 10 scénarios de fraude ont été traduits en indicateurs avec les auditeurs.</p>
+      </div>
+      <div class="pane" data-pane="1">
+        <div class="mono" data-i18n="m.2k">Étape 02 · Automatiser sans perdre le contrôle</div>
+        <div class="flow"><span data-i18n="m.2f1">Pièce reçue</span><i>→</i><span data-i18n="m.2f2">Qualification</span><i>→</i><span data-i18n="m.2f3">Imputation OHADA</span><i>→</i><span class="h" data-i18n="m.2f4">Validation humaine</span></div>
+        <p data-i18n="m.2p">L’agent propose, l’humain décide. En comptabilité comme en santé publique, une erreur validée automatiquement coûte plus cher que le temps gagné. Chaque chaîne s’arrête volontairement devant la décision qui compte.</p>
+      </div>
+      <div class="pane" data-pane="2">
+        <div class="mono" data-i18n="m.3k">Étape 03 · Mesurer l’effet</div>
+        <div class="bigs"><div><strong data-i18n="kpi.1v">2 j → 1 h</strong><span data-i18n="m.3b1">Offre technique et financière</span></div><div><strong>x14</strong><span data-i18n="m.3b2">Publications par mois</span></div><div><strong>/100</strong><span data-i18n="m.3b3">Grille de notation des agents</span></div></div>
+        <p data-i18n="m.3p">Un projet se juge sur un chiffre, pas sur une impression. Les sorties des agents sont notées sur 100 lors des revues, et les modèles de fraude sont évalués en précision, rappel et PR-AUC, jamais en exactitude seule.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <aside class="studio" aria-labelledby="studioT">
+    <img src="assets/ad-design-logo.webp" width="500" height="500" alt="Logo AD Design" loading="lazy">
+    <div>
+      <div class="mono" data-i18n="studio.k">Mon studio · Yaoundé</div>
+      <h3 id="studioT" data-i18n="studio.t">AD Design — web, IA &amp; formation</h3>
+      <p data-i18n="studio.p">Ma structure conçoit des sites web et des automatisations pour des entreprises et des associations. L’équipe compte 3 développeurs, tous issus de mon programme de formation à l’IA.</p>
+    </div>
+    <a class="pill solid" href="#contact"><span data-i18n="studio.cta">Travailler avec le studio</span> <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  </aside>
+</div>
+
+<section class="xp wrap" id="parcours" aria-labelledby="xpT">
+  <div class="disp xp-bg" aria-hidden="true" data-i18n="xp.bg">Parcours</div>
+  <div class="sec-head"><div><div class="mono" data-i18n="xp.k">Expérience &amp; formation</div><h2 class="disp sec-title" id="xpT" style="font-size:clamp(56px,7vw,100px)"><span class="reveal-line"><span><span class="sl">/</span><span data-i18n="xp.t">Parcours</span></span></span></h2></div>
+    <div class="ctas"><a class="pill lime cv-link" href="assets/cv-ryan-tchuisseu-fr.pdf" target="_blank" rel="noopener"><span data-i18n="cv">CV (PDF)</span> <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a><a class="pill" href="https://www.linkedin.com/in/ryan-tchuisseu" target="_blank" rel="noopener">LinkedIn <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div>
+  <div class="xlist" id="xlist"></div>
+</section>
+
+<section class="contact wrap" id="contact" aria-labelledby="contactT">
+  <div class="mono" style="display:flex;align-items:center;gap:12px"><span class="dot"></span><span data-i18n="contact.k">Disponible : CDI, freelance, missions IA</span></div>
+  <div class="contact-top">
+    <h2 class="disp" id="contactT"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg><span data-i18n-html="contact.t">Travaillons<br>ensemble</span></h2>
+    <div class="ways">
+      <a class="way wa magnet" href="https://wa.me/237681656221" target="_blank" rel="noopener"><span>WhatsApp<small>+237 681 656 221</small></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      <div class="way"><span>E-mail<small id="mail">ryantchuisseu@gmail.com</small></span><button type="button" class="copy" id="copyMail" data-i18n="contact.copy">Copier</button></div>
+      <a class="way" href="https://www.linkedin.com/in/ryan-tchuisseu" target="_blank" rel="noopener"><span>LinkedIn<small>in/ryan-tchuisseu</small></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      <a class="way cv-link" href="assets/cv-ryan-tchuisseu-fr.pdf" target="_blank" rel="noopener"><span><span data-i18n="cv">CV (PDF)</span><small data-i18n="cv.sub">1 page · français</small></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a>
+    </div>
+  </div>
+  <div class="disp foot-name" aria-hidden="true" id="footName">Ryan Tchuisseu</div>
+  <div class="foot mono">
+    <span>© 2026 Ryan Tchuisseu × AD Design</span>
+    <span data-i18n="foot.made">Conçu et développé à Yaoundé</span>
+    <a href="#top" data-i18n="foot.top">Retour en haut ↑</a>
+  </div>
+</section>
+</main>
+
+<div class="case" id="case" role="dialog" aria-modal="true" aria-labelledby="caseTitle" data-lenis-prevent hidden></div>
+<div class="preview" id="preview" aria-hidden="true"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+"use strict";
+document.documentElement.classList.add("js");
+const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const FINE = matchMedia("(hover: hover) and (pointer: fine)").matches;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const ARROW = '<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>';
+
+/* ---------- i18n ---------- */
+const T = {
+fr:{
+ "nav.role":"/ Ingénieur Data & IA","nav.work":"Projets","nav.about":"À propos","nav.method":"Méthode","nav.xp":"Parcours","nav.contact":"Contact","nav.status":"CDI & freelance","nav.menu":"Menu","nav.close":"Fermer",
+ "hero.eyebrow":"Ingénieur Data & IA — EPF, titre CTI","hero.tagline":"Je conçois des systèmes d’IA qui tournent <em>en production</em>, et j’en mesure les effets.","hero.cta1":"Je recrute · CV","hero.cta2":"J’ai un projet","hero.loc":"Yaoundé, Cameroun · France 2019–2024","hero.scroll":"Défiler","hero.alt":"Portrait de Ryan Tchuisseu",
+ "kpi.1v":"2 j → 1 h","kpi.1":"Pour produire une offre aux Nations unies, avec 5 agents IA","kpi.2":"Fréquence de publication d’une association, sans intervention humaine","kpi.3":"De la saisie comptable automatisée, validée par un humain",
+ "marq":["Agents IA","Automatisation","Détection de fraude","IA explicable","Power BI","Sites web","Formation"],
+ "about.k":"À propos","about.t":"À propos","about.p":"Ingénieur Big Data formé en France, je construis des agents IA, des modèles de détection et des sites web pour des entreprises et des associations. Ma règle : l’humain garde la décision finale, et chaque projet se juge sur un chiffre, en heures gagnées ou en risques évités.",
+ "stat.1":"Projets","stat.2":"Modèles de fraude comparés","stat.3":"Personnes formées à l’IA","stat.4":"Bilingue",
+ "work.k":"Projets sélectionnés","work.t":"Projets","f.all":"Tous","f.ia":"IA & agents","f.data":"Data & ML","f.web":"Web","f.edu":"Formation","inprogress":"En cours",
+ "method.k":"Comment je travaille","method.t":"Méthode","m.1":"Comprendre","m.2":"Automatiser","m.3":"Mesurer",
+ "m.1k":"Étape 01 · Partir du métier","m.1c1":"Statuts & plan stratégique","m.1c2":"Entretiens métier","m.1c3":"Cahier des charges","m.1c4":"Scénarios de fraude",
+ "m.1p":"Avant d’écrire une ligne de code, je formalise le processus réel. Pour Stroke Action, le cahier des charges vient des statuts et du plan stratégique 2026-2030. Chez ASCOMA, 10 scénarios de fraude ont été traduits en indicateurs avec les auditeurs.",
+ "m.2k":"Étape 02 · Automatiser sans perdre le contrôle","m.2f1":"Pièce reçue","m.2f2":"Qualification","m.2f3":"Imputation OHADA","m.2f4":"Validation humaine",
+ "m.2p":"L’agent propose, l’humain décide. En comptabilité comme en santé publique, une erreur validée automatiquement coûte plus cher que le temps gagné. Chaque chaîne s’arrête volontairement devant la décision qui compte.",
+ "m.3k":"Étape 03 · Mesurer l’effet","m.3b1":"Offre technique et financière","m.3b2":"Publications par mois","m.3b3":"Grille de notation des agents",
+ "m.3p":"Un projet se juge sur un chiffre, pas sur une impression. Les sorties des agents sont notées sur 100 lors des revues, et les modèles de fraude sont évalués en précision, rappel et PR-AUC, jamais en exactitude seule.",
+ "studio.k":"Mon studio · Yaoundé","studio.t":"AD Design — web, IA & formation","studio.p":"Ma structure conçoit des sites web et des automatisations pour des entreprises et des associations. L’équipe compte 3 développeurs, tous issus de mon programme de formation à l’IA.","studio.cta":"Travailler avec le studio",
+ "xp.bg":"Parcours","xp.k":"Expérience & formation","xp.t":"Parcours",
+ "contact.k":"Disponible : CDI, freelance, missions IA","contact.t":"Travaillons<br>ensemble","contact.copy":"Copier","contact.copied":"Copié ✓","contact.sel":"Sélectionné",
+ "cv":"CV (PDF)","cv.sub":"1 page · français","foot.made":"Conçu et développé à Yaoundé","foot.top":"Retour en haut ↑",
+ "c.back":"Retour aux projets","c.client":"Client","c.year":"Année","c.role":"Mon rôle","c.stack":"Stack","c.ctx":"Le contexte","c.did":"Ce que j’ai fait","c.res":"Résultats","c.next":"Projet suivant","c.visit":"Voir le site"
+},
+en:{
+ "nav.role":"/ Data & AI Engineer","nav.work":"Work","nav.about":"About","nav.method":"Method","nav.xp":"Experience","nav.contact":"Contact","nav.status":"Full-time & freelance","nav.menu":"Menu","nav.close":"Close",
+ "hero.eyebrow":"Data & AI Engineer — EPF, CTI-accredited degree","hero.tagline":"I build AI systems that run <em>in production</em>, and I measure what they change.","hero.cta1":"I’m hiring · Resume","hero.cta2":"I have a project","hero.loc":"Yaoundé, Cameroon · France 2019–2024","hero.scroll":"Scroll","hero.alt":"Portrait of Ryan Tchuisseu",
+ "kpi.1v":"2 days → 1 h","kpi.1":"To produce a United Nations tender offer, with 5 AI agents","kpi.2":"Posting frequency for a non-profit, with no human in the loop","kpi.3":"Of bookkeeping entries automated, approved by a human",
+ "marq":["AI agents","Automation","Fraud detection","Explainable AI","Power BI","Websites","Training"],
+ "about.k":"About","about.t":"About","about.p":"A Big Data engineer trained in France, I build AI agents, detection models and websites for companies and non-profits. My rule: a human keeps the final decision, and every project is judged on a number, in hours saved or risks avoided.",
+ "stat.1":"Projects","stat.2":"Fraud models benchmarked","stat.3":"People trained in AI","stat.4":"Bilingual",
+ "work.k":"Selected work","work.t":"Work","f.all":"All","f.ia":"AI & agents","f.data":"Data & ML","f.web":"Web","f.edu":"Training","inprogress":"In progress",
+ "method.k":"How I work","method.t":"Method","m.1":"Understand","m.2":"Automate","m.3":"Measure",
+ "m.1k":"Step 01 · Start from the business","m.1c1":"Bylaws & strategic plan","m.1c2":"Domain interviews","m.1c3":"Specifications","m.1c4":"Fraud scenarios",
+ "m.1p":"Before writing any code, I map the real process. Stroke Action’s specifications came from its bylaws and its 2026-2030 strategic plan. At ASCOMA, 10 fraud scenarios were turned into measurable indicators with the auditors.",
+ "m.2k":"Step 02 · Automate without losing control","m.2f1":"Document received","m.2f2":"Classification","m.2f3":"OHADA posting","m.2f4":"Human approval",
+ "m.2p":"The agent proposes, the human decides. In accounting as in public health, a wrong decision approved automatically costs more than the time it saves. Every pipeline deliberately stops at the decision that matters.",
+ "m.3k":"Step 03 · Measure the effect","m.3b1":"Technical & financial offer","m.3b2":"Posts per month","m.3b3":"Agent scoring grid",
+ "m.3p":"A project is judged on a number, not on an impression. Agent outputs are scored out of 100 in reviews, and fraud models are evaluated on precision, recall and PR-AUC, never on accuracy alone.",
+ "studio.k":"My studio · Yaoundé","studio.t":"AD Design — web, AI & training","studio.p":"My studio builds websites and automations for companies and non-profits. The team has 3 developers, all graduates of my AI training program.","studio.cta":"Work with the studio",
+ "xp.bg":"Experience","xp.k":"Experience & education","xp.t":"Experience",
+ "contact.k":"Available: full-time, freelance, AI projects","contact.t":"Let’s work<br>together","contact.copy":"Copy","contact.copied":"Copied ✓","contact.sel":"Selected",
+ "cv":"Resume (PDF)","cv.sub":"1 page · English","foot.made":"Designed and built in Yaoundé","foot.top":"Back to top ↑",
+ "c.back":"Back to work","c.client":"Client","c.year":"Year","c.role":"My role","c.stack":"Stack","c.ctx":"Context","c.did":"What I did","c.res":"Results","c.next":"Next project","c.visit":"Visit the site"
+}};
+
+/* ---------- data ---------- */
+const PROJECTS = [
+{ id:"nordsudtt-agents", cat:"ia", year:"2026", client:"NORDSUDTT", media:"diagram", preview:{type:"card",big:"2j→1h"},
+  fr:{ title:"Système multi-agents", sub:"NORDSUDTT · 2026 · Appels d’offres des Nations unies", res:"2 jours → 1 heure",
+    hook:"Cinq agents IA qui font passer la production d’une offre pour les Nations unies de deux jours à une heure.",
+    role:"Conception de l’architecture en équipe, fiabilisation, contrôle qualité", stack:["Agents LLM","Orchestration multi-agents","Ingénierie d’instructions","Intégration messagerie"],
+    ctx:["NORDSUDTT est une entreprise française de télécommunications (internet par satellite VSAT, Wi-Fi, WiMAX) qui intervient en Afrique. Elle répond régulièrement aux appels d’offres des agences des Nations unies : des dossiers techniques exigeants, à rendre dans des délais courts.","Tout était manuel : lecture du courrier, recherche de références fournisseurs, rédaction de l’offre, facturation, saisie comptable. Une seule offre mobilisait deux jours de travail."],
+    did:["<b>Architecture.</b> Avec l’équipe de développement, conception d’un agent principal qui orchestre quatre agents spécialisés : triage du courrier, offres technico-commerciales, facturation, comptabilité. Le système est connecté à la messagerie de l’entreprise et tourne en exploitation.","<b>Fiabilité du sourcing.</b> Les premières versions proposaient des références approximatives. J’ai introduit une règle de correspondance minimale de 95 % entre les spécifications du client et les produits proposés, ce qui a supprimé l’essentiel des écarts de prix.","<b>Pièces jointes.</b> Leur détection n’était pas fiable. La requête adressée à l’agent signale désormais explicitement la présence d’un fichier.","<b>Contrôle qualité.</b> Grille de notation sur 100 des sorties de l’agent, utilisée lors des revues avec l’équipe, et rédaction des comptes rendus techniques."],
+    results:[["2 j → 1 h","Délai de production d’une offre, temps divisé par environ 16"],["≈ 5 / jour","Offres produites aujourd’hui"],["90 %","De la saisie comptable automatisée"]] },
+  en:{ title:"Multi-agent system", sub:"NORDSUDTT · 2026 · United Nations tenders", res:"2 days → 1 hour",
+    hook:"Five AI agents that cut the time to produce a United Nations tender offer from two days to one hour.",
+    role:"Architecture design within the team, reliability, quality control", stack:["LLM agents","Multi-agent orchestration","Prompt engineering","Email integration"],
+    ctx:["NORDSUDTT is a French telecom company (VSAT satellite internet, Wi-Fi, WiMAX) operating in Africa. It regularly answers tenders from United Nations agencies: demanding technical files with short deadlines.","Everything was manual: reading incoming mail, finding supplier references, writing the offer, invoicing, bookkeeping. A single offer took two days of work."],
+    did:["<b>Architecture.</b> With the development team, I helped design a main agent orchestrating four specialised agents: mail triage, technical and commercial offers, invoicing, accounting. The system is connected to the company’s email and runs in production.","<b>Sourcing reliability.</b> Early versions suggested approximate references. I introduced a 95% minimum match rule between client specifications and proposed products, which removed most price gaps.","<b>Attachments.</b> File detection was unreliable. The request sent to the agent now explicitly flags when a file is attached.","<b>Quality control.</b> A 100-point scoring grid for agent outputs, used in team reviews, plus the project’s technical reports."],
+    results:[["2 days → 1 h","Time to produce an offer, about 16 times faster"],["≈ 5 / day","Offers produced today"],["90 %","Of bookkeeping entries automated"]] } },
+
+{ id:"ascoma-fraude", cat:"data", year:"2022 – 2024", client:"ASCOMA", media:"typo", preview:{type:"card",big:"1/390",lime:true},
+  fr:{ title:"Fraude en assurance santé", sub:"ASCOMA, Paris · Stage puis CDI · ML explicable", res:"1 prestataire / 390",
+    hook:"Du moteur de règles Excel à l’apprentissage automatique explicable, pour détecter ce que les règles ne voient pas.",
+    role:"Data Analyst puis Ingénieur Data Analyst", stack:["Python","pandas","scikit-learn","XGBoost","imbalanced-learn","SHAP","Excel VBA","SQL","Power BI"],
+    typo:["7","méthodes comparées sur le même protocole : règles métiers, Isolation Forest, LOF, régression logistique, Random Forest, XGBoost, SMOTE."],
+    ctx:["ASCOMA est un courtier en assurances d’environ 700 collaborateurs dans 23 pays. Il manipule des flux financiers et traite des milliers de dossiers de santé par pays.","Deux menaces : la non-conformité réglementaire (code CIMA) et la fraude en assurance santé, comme des soins facturés jamais réalisés, des montants gonflés ou des diagnostics incohérents. Tout était vérifié à la main."],
+    did:["<b>Contrôles réglementaires.</b> Algorithmes VBA automatisant deux contrôles du code CIMA (encaissement des primes, cash before cover) sur des exports d’environ 12 000 lignes. Excel a été choisi parce que les auditeurs le maîtrisaient déjà.","<b>Qualité des données.</b> Mon premier dédoublonnage comparait chaque ligne à toutes les autres, en O(n²). Je l’ai remplacé par une jointure par clé sous pandas : même résultat, traitement quasi instantané.","<b>Banc d’essai.</b> 7 méthodes comparées sur les mêmes données. Avec 2 % de fraudes, un modèle qui ne signale rien a raison 98 fois sur 100 : j’ai donc évalué en précision, rappel, F1 et PR-AUC.","<b>Alertes explicables.</b> Les valeurs de Shapley (SHAP) indiquent pour chaque dossier les facteurs qui ont fait monter le score. L’auditeur lit des raisons vérifiables, pas un verdict opaque.","<b>Enquête réelle.</b> Sur un réseau de 390 pharmacies partenaires, isolement d’un prestataire concentrant environ un sixième de la consommation de primes d’un pays en deux mois. Rapport transmis aux filiales.","<b>Métier.</b> Avec la cellule audit, 10 scénarios de fraude traduits en indicateurs calculables : fréquence des visites, distance entre deux centres le même jour, cohérence acte et diagnostic."],
+    results:[["~12 000","Lignes contrôlées automatiquement, auparavant à la main"],["O(n²) → clé","Dédoublonnage devenu quasi instantané"],["1 / 390","Prestataire atypique identifié et signalé"]] },
+  en:{ title:"Health insurance fraud", sub:"ASCOMA, Paris · Internship then full-time · Explainable ML", res:"1 provider / 390",
+    hook:"From an Excel rules engine to explainable machine learning, to catch what rules cannot see.",
+    role:"Data Analyst, then Data Analyst Engineer", stack:["Python","pandas","scikit-learn","XGBoost","imbalanced-learn","SHAP","Excel VBA","SQL","Power BI"],
+    typo:["7","methods benchmarked under one protocol: business rules, Isolation Forest, LOF, logistic regression, Random Forest, XGBoost, SMOTE."],
+    ctx:["ASCOMA is an insurance broker with about 700 employees in 23 countries. It handles financial flows and thousands of health claims per country.","Two threats: regulatory non-compliance (CIMA code) and health insurance fraud, such as care billed but never delivered, inflated amounts or inconsistent diagnoses. Everything was checked by hand."],
+    did:["<b>Regulatory checks.</b> VBA algorithms automating two CIMA code controls (premium collection, cash before cover) on exports of about 12,000 rows. Excel was chosen because the auditors already used it.","<b>Data quality.</b> My first deduplication compared every row with every other, in O(n²). I replaced it with a keyed join in pandas: same result, near-instant.","<b>Benchmark.</b> 7 methods compared on the same data. With 2% fraud, a model that flags nothing is right 98 times out of 100, so I used precision, recall, F1 and PR-AUC.","<b>Explainable alerts.</b> Shapley values (SHAP) show, for each flagged claim, which factors raised the score. Auditors read verifiable reasons, not an opaque verdict.","<b>Real investigation.</b> Across 390 partner pharmacies, I isolated one provider accounting for about a sixth of a country’s premium consumption over two months. A report went to the subsidiaries.","<b>Domain.</b> With the audit team, 10 fraud scenarios turned into computable indicators: visit frequency, distance between two centres on the same day, procedure and diagnosis consistency."],
+    results:[["~12,000","Rows checked automatically, previously by hand"],["O(n²) → key","Deduplication made near-instant"],["1 / 390","Outlier provider identified and reported"]] } },
+
+{ id:"strokeaction-auto", cat:"ia", year:"2026", client:"Stroke Action", media:"video", preview:{type:"video",src:"assets/strokeaction-loop.mp4"},
+  fr:{ title:"Communication automatisée", sub:"Stroke Action · 2026 · LLM + vidéo générée par programme", res:"x14 publications",
+    hook:"Une publication et une vidéo par jour, produites et diffusées sans intervention humaine.",
+    role:"Conception et mise en production de la chaîne", stack:["Génération par LLM","Rendu vidéo programmatique","Robot de messagerie","Tâches planifiées","Zéro API payante"],
+    cap:"Vidéo générée par la chaîne, sans intervention humaine.",
+    ctx:["Stroke Action est une association camerounaise de sensibilisation à l’AVC, sans équipe de communication. Résultat : une publication toutes les deux semaines au mieux.","Pour une association dont la mission est la prévention, cette irrégularité est un vrai problème : on ne sensibilise pas une population avec deux messages par mois."],
+    did:["<b>Rédaction.</b> Le contenu du jour est écrit à partir d’un plan éditorial de 50 publications sur deux mois.","<b>Vidéo.</b> Une vidéo d’une minute est rendue par programme, avec habillage sonore sous licence libre.","<b>Validation.</b> Le contenu part au responsable médical, qui l’approuve avant toute diffusion. Sur un sujet de santé publique, rien ne sort sans l’accord d’un médecin.","<b>Livraison.</b> Un robot de messagerie livre le tout au responsable et à moi.","<b>Budget.</b> Contrainte posée dès le départ : aucun service payant, uniquement des composants libres."],
+    results:[["x14","Fréquence de publication, à moyens constants"],["50","Publications planifiées et diffusées sur deux mois"],["1","Seule étape humaine : la validation médicale"]] },
+  en:{ title:"Automated outreach", sub:"Stroke Action · 2026 · LLM + programmatic video", res:"x14 posts",
+    hook:"One post and one video a day, produced and published with no human intervention.",
+    role:"Designed and shipped the pipeline", stack:["LLM generation","Programmatic video rendering","Messaging bot","Scheduled jobs","No paid APIs"],
+    cap:"Video generated by the pipeline, with no human intervention.",
+    ctx:["Stroke Action is a Cameroonian stroke-awareness non-profit with no communications team. The result: one post every two weeks at best.","For an organisation whose mission is prevention, that is a real problem: you cannot raise awareness with two messages a month."],
+    did:["<b>Writing.</b> Each day’s content comes from an editorial plan of 50 posts over two months.","<b>Video.</b> A one-minute video is rendered by code, with openly licensed music.","<b>Approval.</b> Content goes to the medical lead, who approves it before release. On a public-health topic, nothing ships without a doctor’s sign-off.","<b>Delivery.</b> A messaging bot delivers everything to the lead and to me.","<b>Budget.</b> Set from day one: no paid services, open components only."],
+    results:[["x14","Posting frequency, with the same resources"],["50","Posts planned and published over two months"],["1","Only human step: medical approval"]] } },
+
+{ id:"agent-comptable", cat:"ia", year:"2026", client:"NORDSUDTT", media:"flow", preview:{type:"card",big:"90 %"},
+  fr:{ title:"Agent comptable OHADA", sub:"NORDSUDTT · 2026 · Sous-projet sous ma responsabilité", res:"90 % automatisé",
+    hook:"Un agent qui lit une pièce comptable reçue par mail, détermine son imputation et propose l’écriture au comptable.",
+    role:"Responsable du sous-projet, de bout en bout", stack:["Claude","Ingénierie d’instructions","Référentiel OHADA / SYSCOHADA","Intégration messagerie"],
+    ctx:["La saisie comptable était entièrement manuelle. Chaque pièce reçue par courriel devait être ouverte, qualifiée, puis imputée à la main selon le plan comptable OHADA / SYSCOHADA des SARL.","Un travail répétitif, long, et source d’erreurs d’imputation."],
+    did:["<b>Cahier des charges.</b> Rédaction, confrontation avec les besoins du comptable, puis validation avec les parties prenantes.","<b>Modélisation.</b> Chronologie de traitement d’une pièce : réception, qualification, imputation selon le plan comptable, proposition d’écriture. Ce découpage est devenu la base de l’agent.","<b>Implémentation.</b> Agent construit sur Claude avec les règles d’imputation du référentiel OHADA / SYSCOHADA.","<b>Garde-fou.</b> L’agent propose l’écriture, il ne la valide pas. Une imputation erronée validée automatiquement coûte plus cher que le temps qu’elle fait gagner."],
+    results:[["90 %","De la saisie comptable automatisée"],["100 %","Des écritures validées par le comptable avant enregistrement"]] },
+  en:{ title:"OHADA accounting agent", sub:"NORDSUDTT · 2026 · Sub-project I led", res:"90 % automated",
+    hook:"An agent that reads an accounting document received by email, determines its posting and proposes the entry to the accountant.",
+    role:"Sub-project lead, end to end", stack:["Claude","Prompt engineering","OHADA / SYSCOHADA standard","Email integration"],
+    ctx:["Bookkeeping was fully manual. Each document received by email had to be opened, classified, then posted by hand under the OHADA / SYSCOHADA chart of accounts.","Repetitive, slow work, and a source of posting errors."],
+    did:["<b>Specifications.</b> Written, tested against the accountant’s needs, then approved with stakeholders.","<b>Process model.</b> The timeline of a document: receipt, classification, posting under the chart of accounts, proposed entry. This breakdown became the agent’s backbone.","<b>Implementation.</b> Agent built on Claude with the OHADA / SYSCOHADA posting rules.","<b>Safeguard.</b> The agent proposes the entry, it never approves it. A wrong posting approved automatically costs more than the time it saves."],
+    results:[["90 %","Of bookkeeping entries automated"],["100 %","Of entries approved by the accountant before recording"]] } },
+
+{ id:"strokeaction-site", cat:"web", year:"2026", client:"Stroke Action", media:"site", shot:"assets/strokeaction-site.webp", url:"https://strokeaction.org", preview:{type:"img",src:"assets/strokeaction-site.webp"},
+  fr:{ title:"strokeaction.org", sub:"Stroke Action · 2026 · Site bilingue · AD Design", res:"En ligne",
+    hook:"Un site associatif bilingue avec dons en ligne et espace membre, conçu à partir des statuts et du plan stratégique du client.",
+    role:"Cahier des charges, développement, identité, mise en ligne", stack:["React","Next.js","FR / EN","Photopea"],
+    cap:"strokeaction.org, page d’accueil.",
+    ctx:["L’association avait des statuts, un règlement intérieur et un plan stratégique 2026-2030, mais aucune présence en ligne.","Il lui fallait un site capable de collecter des dons et d’accueillir ses membres, pas une simple vitrine."],
+    did:["<b>Cahier des charges</b> établi à partir des documents fondateurs, en traduisant les objectifs du plan stratégique en fonctionnalités concrètes.","<b>Développement</b> en React, avec deux modules structurants : dons en ligne et espace membre, en français et en anglais.","<b>Identité visuelle.</b> Reprise du logo et charte graphique à deux couleurs.","<b>Mise en ligne.</b> Nom de domaine et hébergement pris en charge de bout en bout.","<b>Contractualisation.</b> Proposition commerciale en trois formules, contrat signé, échéancier de paiement."],
+    results:[["Live","Site, domaine et hébergement livrés"],["FR / EN","Contenu bilingue"],["+ CM","Community management engagé dans la continuité"]] },
+  en:{ title:"strokeaction.org", sub:"Stroke Action · 2026 · Bilingual site · AD Design", res:"Live",
+    hook:"A bilingual non-profit website with online donations and a members’ area, designed from the client’s bylaws and strategic plan.",
+    role:"Specifications, development, identity, launch", stack:["React","Next.js","FR / EN","Photopea"],
+    cap:"strokeaction.org, home page.",
+    ctx:["The organisation had bylaws, internal rules and a 2026-2030 strategic plan, but no online presence.","It needed a site that could collect donations and welcome members, not just a brochure."],
+    did:["<b>Specifications</b> drawn from the founding documents, turning strategic-plan goals into concrete features.","<b>Development</b> in React, with two core modules: online donations and a members’ area, in French and English.","<b>Visual identity.</b> Logo rework and a two-colour brand guide.","<b>Launch.</b> Domain and hosting handled end to end.","<b>Contracting.</b> A three-tier proposal, a signed contract and a payment schedule."],
+    results:[["Live","Site, domain and hosting delivered"],["FR / EN","Bilingual content"],["+ CM","Social media management signed as a follow-up"]] } },
+
+{ id:"aliem", cat:"web", year:"2026", client:"ALIEM", media:"site", shot:"assets/aliem-site.webp", wip:true, preview:{type:"img",src:"assets/aliem-site.webp"},
+  fr:{ title:"ALIEM Shopping", sub:"ALIEM, Bastos (Yaoundé) · 2026 · E-commerce · AD Design", res:"En cours",
+    hook:"Une boutique en ligne et une présence numérique complète pour un commerce de quartier.",
+    role:"Conception, développement, référencement local", stack:["Next.js","Vercel","Claude Code","Google Business Profile"],
+    cap:"Boutique ALIEM, page d’accueil (en cours de production, prix d’exemple).",
+    ctx:["ALIEM est un commerce installé à Bastos, à Yaoundé. Sa clientèle se limitait aux personnes qui passaient devant la boutique.","L’enjeu : être trouvable en ligne et permettre de commander sans se déplacer."],
+    did:["<b>Boutique en ligne.</b> Catalogue en 6 univers (robes, chaussures, accessoires, perruques, beauté, homme) et panier.","<b>Commande sur WhatsApp.</b> Chaque produit ouvre un message déjà rédigé : le canal que les clients utilisent déjà, sans compte à créer.","<b>Rendez-vous en boutique.</b> Réservation d’un créneau d’essayage, confirmée sur WhatsApp.","<b>Infos pratiques.</b> Livraison à Yaoundé et Douala, paiement à la livraison.","<b>Référencement local.</b> Création et optimisation de la fiche Google de l’établissement, pour apparaître dans les recherches et sur la carte.","<b>Présence sociale.</b> Mise en place des canaux de diffusion et des contenus associés."],
+    results:[["6","Univers de produits en ligne"],["1 clic","Pour commander sur WhatsApp"],["En cours","Site en phase de production"]] },
+  en:{ title:"ALIEM Shopping", sub:"ALIEM, Bastos (Yaoundé) · 2026 · E-commerce · AD Design", res:"In progress",
+    hook:"An online store and a full digital presence for a neighbourhood shop.",
+    role:"Design, development, local SEO", stack:["Next.js","Vercel","Claude Code","Google Business Profile"],
+    cap:"ALIEM store, home page (in production, sample prices).",
+    ctx:["ALIEM is a shop in Bastos, Yaoundé. Its customers were limited to people walking past.","The goal: be findable online and let people order without travelling."],
+    did:["<b>Online store.</b> A catalogue in 6 categories (dresses, shoes, accessories, wigs, beauty, men) and a cart.","<b>WhatsApp ordering.</b> Each product opens a pre-written message: the channel customers already use, no account needed.","<b>In-store appointments.</b> Book a fitting slot, confirmed on WhatsApp.","<b>Practical info.</b> Delivery in Yaoundé and Douala, cash on delivery.","<b>Local SEO.</b> Created and optimised the Google Business listing, to show up in search and on the map.","<b>Social presence.</b> Set up publishing channels and content."],
+    results:[["6","Product categories online"],["1 tap","To order on WhatsApp"],["In progress","Site in production"]] } },
+
+{ id:"clinique-angelo", cat:"web", year:"2026", client:"Clinique Angelo", media:"typo", wip:true, preview:{type:"card",big:"Douala"},
+  fr:{ title:"Clinique Angelo", sub:"Douala · 2026 · Clinique chirurgicale · AD Design", res:"En cours",
+    hook:"Le site d’une clinique chirurgicale, pensé pour accompagner son ouverture.",
+    role:"Conception et développement du site", stack:["Claude Code"],
+    typo:["Ouverture","Le site est le premier point de contact d’une clinique qui démarre."],
+    ctx:["Une clinique spécialisée en chirurgie ouvre ses portes à Douala.","Pour une structure médicale qui démarre, le site est le premier point de contact : les patients doivent comprendre tout de suite quels services sont proposés, et à quel prix."],
+    did:["<b>Services de chirurgie</b> présentés pour être lisibles par des patients, pas par des soignants.","<b>Offre de lancement</b> et tarifs préférentiels mis en avant, un argument décisif pour une clinique qui se constitue une patientèle.","<b>Identité visuelle</b> adaptée au secteur médical, construite autour du bleu demandé par le client."],
+    results:[["En cours","Projet en cours de réalisation"]] },
+  en:{ title:"Clinique Angelo", sub:"Douala · 2026 · Surgical clinic · AD Design", res:"In progress",
+    hook:"A website for a surgical clinic, built to support its opening.",
+    role:"Site design and development", stack:["Claude Code"],
+    typo:["Opening","The website is the first point of contact for a new clinic."],
+    ctx:["A clinic specialised in surgery is opening in Douala.","For a new medical facility, the website is the first point of contact: patients must understand right away which services are offered, and at what price."],
+    did:["<b>Surgical services</b> written for patients, not for clinicians.","<b>Launch offer</b> and introductory prices highlighted, a key argument for a clinic building its patient base.","<b>Visual identity</b> suited to healthcare, built around the blue the client asked for."],
+    results:[["In progress","Project under way"]] } },
+
+{ id:"formation-ia", cat:"edu", year:"2025 – 2026", client:"AD Design", media:"typo", preview:{type:"card",big:"12",lime:true},
+  fr:{ title:"Formation à l’IA", sub:"Cameroun · Projet personnel · 3 niveaux", res:"12 formés · 3 recrutés",
+    hook:"12 personnes formées à l’IA appliquée, dont 3 travaillent aujourd’hui avec moi.",
+    role:"Fondateur et responsable pédagogique", stack:["Google Colab","Claude","Pédagogie par projets"],
+    typo:["12 → 3","apprenants formés, dont 3 recrutés chez AD Design sur des projets clients."],
+    ctx:["L’IA générative transforme les métiers plus vite que les formations locales ne s’adaptent.","Au Cameroun, deux obstacles s’ajoutent : le coût des outils et l’irrégularité de la connexion. Les formations existantes supposent les deux résolus."],
+    did:["<b>Curriculum en 3 niveaux</b>, centré sur l’usage professionnel des assistants conversationnels et l’automatisation de tâches métier.","<b>Pédagogie par projets.</b> Chaque module se termine par une réalisation concrète et locale, pas par un questionnaire.","<b>Format hybride</b> présentiel et en ligne, pensé pour une connexion irrégulière. Google Colab évite toute installation lourde.","<b>Publics.</b> Étudiants, personnes en reconversion, professionnels en activité.","<b>Plateforme</b> dédiée en cours de conception : parcours par niveau et suivi des apprenants."],
+    results:[["12","Apprenants formés à ce jour"],["3","Recrutés chez AD Design, sur des projets clients"]] },
+  en:{ title:"AI training program", sub:"Cameroon · Personal project · 3 levels", res:"12 trained · 3 hired",
+    hook:"12 people trained in applied AI, 3 of whom now work with me.",
+    role:"Founder and program lead", stack:["Google Colab","Claude","Project-based learning"],
+    typo:["12 → 3","learners trained, 3 of them hired at AD Design on client projects."],
+    ctx:["Generative AI is changing jobs faster than local training adapts.","In Cameroon, two more obstacles apply: tool costs and unreliable connectivity. Existing courses assume both are solved."],
+    did:["<b>A 3-level curriculum</b> focused on professional use of AI assistants and automating business tasks.","<b>Project-based.</b> Each module ends with a concrete local build, not a quiz.","<b>Hybrid format</b>, in person and online, designed for unreliable connections. Google Colab avoids heavy installs.","<b>Audiences.</b> Students, career changers, working professionals.","<b>A dedicated platform</b> in design: level-based paths and learner tracking."],
+    results:[["12","Learners trained to date"],["3","Hired at AD Design, on client projects"]] } },
+
+{ id:"chu-montpellier", cat:"data", year:"2020", client:"CHU de Montpellier", media:"typo", preview:{type:"card",big:"SQL"},
+  fr:{ title:"Base de données VIH", sub:"CHU de Montpellier · 2020 · Données de santé", res:"Stage",
+    hook:"Une base de données conçue pour mesurer l’effet du traitement préventif du VIH sur la résistance à d’autres infections.",
+    role:"Ingénieur informatique, stagiaire", stack:["SQL","Wolfram Mathematica"],
+    typo:["PrEP","Rendre interrogeables des réponses à des questionnaires en ligne, en milieu hospitalier."],
+    ctx:["Le service cherchait à évaluer l’impact de la prophylaxie pré-exposition au VIH sur la résistance à d’autres infections sexuellement transmissibles.","Les données existaient sous forme de réponses à des questionnaires en ligne, non structurées et inexploitables en l’état."],
+    did:["<b>Base SQL</b> conçue pour les questionnaires, afin que les réponses deviennent interrogeables.","<b>Analyse</b> sous Wolfram Mathematica, pour dégager des éléments utiles à la prise en charge.","<b>Environnement hospitalier</b>, sur des données de santé sensibles."],
+    results:[["SQL","Base structurée livrée au service"]] },
+  en:{ title:"HIV research database", sub:"Montpellier University Hospital · 2020 · Health data", res:"Internship",
+    hook:"A database designed to measure the effect of HIV preventive treatment on resistance to other infections.",
+    role:"IT engineering intern", stack:["SQL","Wolfram Mathematica"],
+    typo:["PrEP","Turning online questionnaire answers into queryable data, in a hospital setting."],
+    ctx:["The department wanted to assess how HIV pre-exposure prophylaxis affects resistance to other sexually transmitted infections.","The data were online questionnaire answers, unstructured and unusable as they were."],
+    did:["<b>A SQL database</b> designed around the questionnaires so answers became queryable.","<b>Analysis</b> in Wolfram Mathematica to inform patient care.","<b>Hospital setting</b>, working with sensitive health data."],
+    results:[["SQL","Structured database delivered to the department"]] } },
+
+{ id:"epf-projets", cat:"data", year:"2019 – 2022", client:"EPF Montpellier", media:"typo", preview:{type:"card",big:"x3"},
+  fr:{ title:"Projets EPF", sub:"EPF, Montpellier · 2019 – 2022 · Data engineering", res:"3 projets",
+    hook:"Trois projets de données menés en école d’ingénieurs, du nettoyage à la restitution.",
+    role:"Chef de groupe (station d’épuration), développeur data", stack:["Python","SQL","Excel","Power BI"],
+    typo:["x3","projets de données, de l’extraction brute au tableau de bord."],
+    ctx:["Projets académiques du diplôme d’ingénieur Big Data, sur des données réelles : un site d’épuration à Montpellier et des données bancaires."],
+    did:["<b>Station d’épuration (chef de groupe).</b> Extraction, nettoyage en Python et restitution sous Power BI, avec l’organisation et la coordination de l’équipe.","<b>Données bancaires I.</b> Clients, transactions et relevés : nettoyage sous Excel puis requêtes SQL avancées pour restructurer la base.","<b>Données bancaires II.</b> Intégration sous Power BI, critères de classification de la clientèle et indicateurs comparant les clients par produits et revenus."],
+    results:[["3","Projets livrés, dont un en tant que chef de groupe"]] },
+  en:{ title:"EPF projects", sub:"EPF, Montpellier · 2019 – 2022 · Data engineering", res:"3 projects",
+    hook:"Three data projects at engineering school, from cleaning to reporting.",
+    role:"Team lead (water treatment), data developer", stack:["Python","SQL","Excel","Power BI"],
+    typo:["x3","data projects, from raw extraction to dashboard."],
+    ctx:["Academic projects for the Big Data engineering degree, on real data: a water treatment plant in Montpellier and banking data."],
+    did:["<b>Water treatment plant (team lead).</b> Extraction, Python cleaning and Power BI reporting, plus team organisation and coordination.","<b>Banking data I.</b> Customers, transactions and statements: Excel cleaning, then advanced SQL to restructure the database.","<b>Banking data II.</b> Power BI integration, customer segmentation criteria and indicators comparing customers by products and income."],
+    results:[["3","Projects delivered, one as team lead"]] } }
+];
+
+const XP = [
+ { d:{fr:"2026 — auj.",en:"2026 — now"}, o:"AD Design · NORDSUDTT · Stroke Action", r:{fr:"Fondateur · Ingénieur Data & IA",en:"Founder · Data & AI Engineer"}, c:["Agents LLM","Claude","React","Automatisation"] },
+ { d:{fr:"2024 — 2026",en:"2024 — 2026"}, o:{fr:"Entreprise familiale, Cameroun",en:"Family business, Cameroon"}, r:{fr:"Gestion de l’entreprise",en:"Business management"}, c:[] },
+ { d:{fr:"Sept. 2022 — mai 2024",en:"Sep 2022 — May 2024"}, o:"ASCOMA, Paris", r:{fr:"Ingénieur Data Analyst · CDI",en:"Data Analyst Engineer · Full-time"}, c:["Power BI","SQL","VBA","ETL"] },
+ { d:{fr:"Mars — août 2022",en:"Mar — Aug 2022"}, o:"ASCOMA, Paris", r:{fr:"Data Analyst · Stage de fin d’études",en:"Data Analyst · Final-year internship"}, c:["Python","XGBoost","SHAP"] },
+ { d:{fr:"Sept. — nov. 2020",en:"Sep — Nov 2020"}, o:{fr:"CHU de Montpellier",en:"Montpellier University Hospital"}, r:{fr:"Ingénieur informatique, stagiaire",en:"IT engineering intern"}, c:["SQL","Mathematica"] },
+ { d:{fr:"2019 — 2022",en:"2019 — 2022"}, o:{fr:"EPF — École d’ingénieurs, Montpellier",en:"EPF Engineering School, Montpellier"}, r:{fr:"Diplôme d’ingénieur Big Data (CTI)",en:"MEng in Big Data (CTI-accredited)"}, c:["Data engineering","SQL / NoSQL"] },
+ { d:{fr:"2017 — 2019",en:"2017 — 2019"}, o:"PrépaVogt, Yaoundé", r:{fr:"Classes préparatoires MPSI",en:"Preparatory classes, maths & physics"}, c:[] }
+];
+
+let lang = "fr";
+try { const s = localStorage.getItem("rt-lang"); if (s === "en" || s === "fr") lang = s; } catch (e) {}
+if (lang === "fr" && !location.hash && navigator.language && !/^fr/i.test(navigator.language)) { try { if (!localStorage.getItem("rt-lang")) lang = "en"; } catch (e) { lang = "en"; } }
+const t = k => (T[lang][k] ?? T.fr[k] ?? k);
+const pick = v => (v && typeof v === "object" && !Array.isArray(v) ? (v[lang] ?? v.fr) : v);
+
+/* ---------- render ---------- */
+function renderMarquee() {
+  const words = t("marq"); const html = words.map(w => `<span>${w}</span>`).join("");
+  $("#marq").innerHTML = html + html;
+}
+let filter = "all";
+function renderFilters() {
+  const f = [["all","f.all"],["ia","f.ia"],["data","f.data"],["web","f.web"],["edu","f.edu"]];
+  $("#filters").innerHTML = f.map(([k,l]) => `<button type="button" data-f="${k}" aria-pressed="${k===filter}">${t(l)}</button>`).join("");
+}
+function renderList() {
+  $("#list").innerHTML = PROJECTS.map((p,i) => { const c = p[lang];
+    return `<button type="button" class="row" data-id="${p.id}" data-cat="${p.cat}" ${filter!=="all"&&p.cat!==filter?"hidden":""}>
+      <span class="num">${String(i+1).padStart(2,"0")}</span>
+      <span><span class="t">${c.title}</span>${p.wip?`<span class="badge">${t("inprogress")}</span>`:""}<span class="sub" style="display:block">${c.sub}</span></span>
+      <span class="res">${c.res}</span>
+      <span class="go" aria-hidden="true"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </button>`; }).join("");
+}
+function renderXP() {
+  $("#xlist").innerHTML = XP.map(x => `<div class="xrow"><div><b>${pick(x.o)}</b><span class="r">${pick(x.r)}</span></div><div class="chips">${x.c.map(c=>`<span>${c}</span>`).join("")}</div><div class="d">${pick(x.d)}</div></div>`).join("");
+}
+function splitAbout() {
+  const el = $("#aboutText"); const txt = t("about.p");
+  el.setAttribute("aria-label", txt);
+  el.innerHTML = txt.split(" ").map(w => `<span class="w" aria-hidden="true">${w}</span>`).join(" ");
+}
+function applyLang() {
+  document.documentElement.lang = lang;
+  $$("[data-i18n]").forEach(el => { const v = t(el.dataset.i18n); if (typeof v === "string") el.textContent = v; });
+  $$("[data-i18n-html]").forEach(el => el.innerHTML = t(el.dataset.i18nHtml));
+  $$("[data-i18n-alt]").forEach(el => el.alt = t(el.dataset.i18nAlt));
+  $$(".cv-link").forEach(a => a.href = `assets/cv-ryan-tchuisseu-${lang}.pdf`);
+  $$(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+  renderMarquee(); renderFilters(); renderList(); renderXP(); splitAbout();
+  if (openId) openCase(openId, true);
+  window.ScrollTrigger && ScrollTrigger.refresh();
+}
+$$(".lang button").forEach(b => b.addEventListener("click", () => {
+  lang = b.dataset.lang; try { localStorage.setItem("rt-lang", lang); } catch (e) {}
+  applyLang(); bindAbout();
+}));
+
+/* ---------- filters + list ---------- */
+$("#filters").addEventListener("click", e => {
+  const b = e.target.closest("button[data-f]"); if (!b) return;
+  filter = b.dataset.f;
+  $$("#filters button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  $$("#list .row").forEach(r => r.hidden = filter !== "all" && r.dataset.cat !== filter);
+  if (window.gsap && !RM) gsap.from($$("#list .row:not([hidden])"), { y: 24, opacity: 0, duration: .6, stagger: .05, ease: "power3.out" });
+  window.ScrollTrigger && ScrollTrigger.refresh();
+});
+$("#list").addEventListener("click", e => { const r = e.target.closest(".row"); if (r) openCase(r.dataset.id); });
+
+/* ---------- hover preview (fine pointers only) ---------- */
+const pv = $("#preview");
+function previewHTML(p) {
+  const v = p.preview;
+  if (v.type === "img") return `<img src="${v.src}" alt="">`;
+  if (v.type === "video") return `<video src="${v.src}" muted loop playsinline autoplay></video>`;
+  return `<div class="tcard${v.lime?" lime":""}"><span class="mono" style="color:inherit;opacity:.7">${p.client}</span><strong>${v.big}</strong></div>`;
+}
+if (FINE && window.gsap) {
+  const xTo = gsap.quickTo(pv, "x", { duration: .5, ease: "power3" });
+  const yTo = gsap.quickTo(pv, "y", { duration: .5, ease: "power3" });
+  let cur = null;
+  $("#list").addEventListener("pointermove", e => { xTo(e.clientX); yTo(e.clientY); });
+  $("#list").addEventListener("pointerover", e => {
+    const r = e.target.closest(".row"); if (!r || r.dataset.id === cur) return;
+    cur = r.dataset.id; pv.innerHTML = previewHTML(PROJECTS.find(p => p.id === cur));
+    gsap.to(pv, { opacity: 1, scale: 1, rotate: -3, duration: .5, ease: "power3.out" });
+  });
+  $("#list").addEventListener("pointerleave", () => { cur = null; gsap.to(pv, { opacity: 0, scale: .6, rotate: -6, duration: .35, ease: "power2.in", onComplete: () => { if (!cur) pv.innerHTML = ""; } }); });
+  addEventListener("blur", () => gsap.set(pv, { opacity: 0 }));
+}
+
+/* ---------- case study ---------- */
+const caseEl = $("#case"); let openId = null; let lastFocus = null;
+function diagramSVG() {
+  const lbl = lang === "fr" ? ["Agent principal","Courrier","Offres","Facturation","Comptabilité","Messagerie de l’entreprise"] : ["Main agent","Mail triage","Offers","Invoicing","Accounting","Company email"];
+  const xs = [110, 330, 550, 770];
+  return `<svg viewBox="0 0 880 400" role="img" aria-label="${lbl[0]} → ${lbl.slice(1,5).join(", ")}">
+    <rect x="300" y="20" width="280" height="44" rx="22" fill="#1a1b17" stroke="#33352e"/><text x="440" y="48" text-anchor="middle" fill="#8d8f86" font-family="Geist Mono, monospace" font-size="13">${lbl[5].toUpperCase()}</text>
+    <line x1="440" y1="64" x2="440" y2="120" stroke="#33352e" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <rect x="320" y="120" width="240" height="70" rx="16" fill="#c8ff3e"/><text x="440" y="162" text-anchor="middle" fill="#0b0c0a" font-family="Anton, Impact, sans-serif" font-size="26">${lbl[0].toUpperCase()}</text>
+    ${xs.map((x,i)=>`<path d="M440 190 C440 240 ${x} 230 ${x} 290" fill="none" stroke="#c8ff3e" stroke-opacity=".5" stroke-width="1.5"/>
+    <rect x="${x-95}" y="290" width="190" height="64" rx="14" fill="#1a1b17" stroke="#33352e"/><text x="${x}" y="328" text-anchor="middle" fill="#eeefe8" font-family="Geist, sans-serif" font-size="17">${lbl[i+1]}</text>`).join("")}
+  </svg>`;
+}
+function mediaHTML(p, c) {
+  if (p.media === "video") return `<figure class="case-media" style="margin-inline:0"><video src="assets/strokeaction-film.mp4" poster="assets/sa-scene-3.webp" controls playsinline preload="none"></video><figcaption class="cap mono">${c.cap}</figcaption></figure>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${["assets/sa-scene-15.webp","assets/sa-scene-34.webp","assets/sa-scene-40.webp"].map(s=>`<img src="${s}" alt="" loading="lazy" style="border-radius:14px;border:1px solid var(--line)">`).join("")}</div>`;
+  if (p.media === "site") return `<figure class="case-media" style="margin-inline:0"><img src="${p.shot}" width="1440" height="780" alt="${c.cap}"><figcaption class="cap mono">${c.cap}</figcaption></figure>`;
+  if (p.media === "diagram") return `<div class="case-media diagram">${diagramSVG()}</div>`;
+  if (p.media === "flow") { const f = ["m.2f1","m.2f2","m.2f3","m.2f4"].map(t); return `<div class="case-media typo-media"><div class="flow" style="font-size:16px"><span>${f[0]}</span><i>→</i><span>${f[1]}</span><i>→</i><span>${f[2]}</span><i>→</i><span class="h">${f[3]}</span></div><strong>90 %</strong></div>`; }
+  return `<div class="case-media typo-media"><strong>${c.typo[0]}</strong><p>${c.typo[1]}</p></div>`;
+}
+function openCase(id, silent) {
+  const i = PROJECTS.findIndex(p => p.id === id); if (i < 0) return;
+  const p = PROJECTS[i], c = p[lang], n = PROJECTS[(i + 1) % PROJECTS.length];
+  if (!openId) lastFocus = document.activeElement;
+  openId = id;
+  caseEl.innerHTML = `
+  <div class="case-bar wrap"><button type="button" class="pill" data-close>← ${t("c.back")}</button><span class="mono">${String(i+1).padStart(2,"0")} / ${String(PROJECTS.length).padStart(2,"0")}</span></div>
+  <div class="wrap">
+    <div class="case-hero">
+      <div class="mono">${c.sub}</div>
+      <h2 class="disp" id="caseTitle">${c.title}</h2>
+      <p class="hook">${c.hook}</p>
+      ${p.url ? `<p style="margin-top:24px"><a class="pill lime" href="${p.url}" target="_blank" rel="noopener">${t("c.visit")} ${ARROW}</a></p>` : ""}
+      <div class="meta">
+        <div><span class="mono">${t("c.client")}</span><b>${p.client}</b></div>
+        <div><span class="mono">${t("c.year")}</span><b>${p.year}</b></div>
+        <div><span class="mono">${t("c.role")}</span><b>${c.role}</b></div>
+        <div><span class="mono">${t("c.stack")}</span><b>${c.stack.join(" · ")}</b></div>
+      </div>
+    </div>
+    ${mediaHTML(p, c)}
+    <div class="case-body"><h3>${t("c.ctx")}</h3><div>${c.ctx.map(x=>`<p>${x}</p>`).join("")}</div></div>
+    <div class="case-body"><h3>${t("c.did")}</h3><ul>${c.did.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+    <div class="case-body"><h3>${t("c.res")}</h3><div class="results">${c.results.map(([a,b])=>`<div><strong>${a}</strong><span>${b}</span></div>`).join("")}</div></div>
+    <button type="button" class="next" data-next="${n.id}"><span><span class="mono">${t("c.next")}</span><span class="disp" style="display:block;margin-top:12px">${n[lang].title}</span></span><span class="go" style="font-size:40px">→</span></button>
+  </div>`;
+  if (silent) return;
+  caseEl.hidden = false; caseEl.classList.add("open"); caseEl.scrollTop = 0;
+  lenis && lenis.stop();
+  document.body.style.overflow = "hidden";
+  try { history.replaceState(null, "", "#" + id); } catch (e) {}
+  if (window.gsap && !RM) {
+    gsap.fromTo(caseEl, { yPercent: 100 }, { yPercent: 0, duration: .9, ease: "expo.out" });
+    gsap.from(caseEl.querySelectorAll(".case-hero > *"), { y: 40, opacity: 0, duration: .8, stagger: .06, delay: .25, ease: "power3.out" });
+  } else caseEl.style.transform = "none";
+  $("[data-close]", caseEl).focus({ preventScroll: true });
+}
+function closeCase() {
+  if (!openId) return; openId = null;
+  const done = () => { caseEl.hidden = true; caseEl.classList.remove("open"); caseEl.innerHTML = ""; };
+  document.body.style.overflow = ""; lenis && lenis.start();
+  try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
+  if (window.gsap && !RM) gsap.to(caseEl, { yPercent: 100, duration: .6, ease: "expo.in", onComplete: done }); else done();
+  lastFocus && lastFocus.focus && lastFocus.focus({ preventScroll: true });
+}
+caseEl.addEventListener("click", e => {
+  if (e.target.closest("[data-close]")) closeCase();
+  const n = e.target.closest("[data-next]"); if (n) { openCase(n.dataset.next, true); caseEl.scrollTop = 0; $("[data-close]", caseEl).focus({ preventScroll: true }); try { history.replaceState(null, "", "#" + n.dataset.next); } catch (e) {} }
+});
+addEventListener("keydown", e => {
+  if (e.key === "Escape") { if (openId) closeCase(); else if (!$("#sheet").hidden) toggleSheet(false); }
+  if (e.key === "Tab" && openId) {
+    const f = $$('a[href],button,video[controls]', caseEl); if (!f.length) return;
+    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length-1].focus(); }
+    else if (!e.shiftKey && document.activeElement === f[f.length-1]) { e.preventDefault(); f[0].focus(); }
+  }
+});
+
+/* ---------- mobile menu ---------- */
+function toggleSheet(open) {
+  const s = $("#sheet"); s.hidden = !open;
+  $("#menuBtn").setAttribute("aria-expanded", open); $("#menuBtn").textContent = t(open ? "nav.close" : "nav.menu");
+  document.body.style.overflow = open ? "hidden" : "";
+}
+$("#menuBtn").addEventListener("click", () => toggleSheet($("#sheet").hidden));
+$$("#sheet a").forEach(a => a.addEventListener("click", () => toggleSheet(false)));
+
+/* ---------- copy email ---------- */
+$("#copyMail").addEventListener("click", async e => {
+  const b = e.currentTarget, mail = $("#mail").textContent;
+  try { await navigator.clipboard.writeText(mail); b.textContent = t("contact.copied"); }
+  catch (err) { const r = document.createRange(); r.selectNodeContents($("#mail")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = t("contact.sel"); }
+  setTimeout(() => b.textContent = t("contact.copy"), 2000);
+});
+
+/* ---------- nav state ---------- */
+let lastY = 0;
+function onScroll(y) {
+  $("#nav").classList.toggle("scrolled", y > 40);
+  $("#nav").classList.toggle("hide", y > 600 && y > lastY && $("#sheet").hidden);
+  lastY = y;
+}
+
+/* ---------- boot ---------- */
+applyLang();
+let lenis = null;
+let bindAbout = () => {};
+
+if (!window.gsap || RM) {
+  addEventListener("scroll", () => onScroll(scrollY), { passive: true });
+  $$("#aboutText .w").forEach(w => w.classList.add("on"));
+} else {
+  gsap.registerPlugin(ScrollTrigger);
+  if (window.Lenis) {
+    lenis = new Lenis({ duration: 1.15, smoothWheel: true });
+    lenis.on("scroll", ScrollTrigger.update);
+    addEventListener("scroll", () => onScroll(scrollY), { passive: true });
+    gsap.ticker.add(time => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+    $$('a[href^="#"]').forEach(a => a.addEventListener("click", e => {
+      const id = a.getAttribute("href"); const el = id === "#top" ? document.body : $(id);
+      if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: id === "#top" ? 0 : -70 }); }
+    }));
+  } else addEventListener("scroll", () => onScroll(scrollY), { passive: true });
+
+  /* intro: built by script so the page is complete without it */
+  const intro = document.createElement("div"); intro.className = "intro"; intro.setAttribute("aria-hidden", "true");
+  intro.innerHTML = `<p><span class="dot"></span>Ryan Tchuisseu — Data &amp; IA</p><span class="count">0</span>`;
+  document.body.appendChild(intro);
+  const cnt = { v: 0 };
+  const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+  tl.to(cnt, { v: 100, duration: 1.1, ease: "power2.inOut", onUpdate: () => intro.querySelector(".count").textContent = Math.round(cnt.v) })
+    .to(intro, { yPercent: -100, duration: 1, ease: "expo.inOut" })
+    .from(".hero-name.back span, .hero-name.front span", { yPercent: 110, duration: 1.2, stagger: .06 }, "-=.55")
+    .from(".portrait img", { y: 80, opacity: 0, duration: 1.3 }, "<.1")
+    .from(".ring, .halo", { scale: .7, opacity: 0, duration: 1.6, stagger: .1 }, "<")
+    .from(".hero-in", { y: 24, opacity: 0, duration: .9, stagger: .07 }, "<.3")
+    .from(".nav", { y: -30, opacity: 0, duration: .8 }, "<")
+    .add(() => intro.remove());
+  setTimeout(() => { if (intro.isConnected) { tl.progress(1); } }, 6000);
+
+  /* hero: name drifts sideways, portrait sinks slightly */
+  gsap.to(".hero-name", { xPercent: -22, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true } });
+  gsap.to(".portrait", { yPercent: 8, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true } });
+
+  /* section titles */
+  $$(".reveal-line > span").forEach(el => gsap.from(el, { yPercent: 105, duration: 1.1, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 88%" } }));
+
+  /* about words light up as you read */
+  let aboutST = null;
+  bindAbout = () => {
+    aboutST && aboutST.kill();
+    const words = $$("#aboutText .w");
+    aboutST = ScrollTrigger.create({ trigger: "#aboutText", start: "top 80%", end: "bottom 45%", scrub: true,
+      onUpdate: s => { const n = Math.round(s.progress * words.length); words.forEach((w, i) => w.classList.toggle("on", i < n)); } });
+  };
+  bindAbout();
+
+  /* stat counters */
+  $$("[data-count]").forEach(el => { const o = { v: 0 }, end = +el.dataset.count;
+    gsap.to(o, { v: end, duration: 1.6, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 90%" }, onUpdate: () => el.textContent = Math.round(o.v) }); });
+
+  /* work rows */
+  gsap.from("#list .row", { y: 30, opacity: 0, duration: .8, stagger: .05, ease: "power3.out", scrollTrigger: { trigger: "#list", start: "top 85%" } });
+
+  /* method: pinned on desktop, step follows scroll */
+  const mm = gsap.matchMedia();
+  const setStep = i => { $$(".step-w").forEach((s, k) => s.classList.toggle("on", k === i)); $$(".pane").forEach((p, k) => p.classList.toggle("on", k === i)); };
+  mm.add("(min-width: 901px)", () => {
+    const st = ScrollTrigger.create({ trigger: "#methodGrid", start: "center center", end: "+=1400", pin: "#methode", pinSpacing: true,
+      onUpdate: s => setStep(Math.min(2, Math.floor(s.progress * 3))) });
+    return () => st.kill();
+  });
+  mm.add("(max-width: 900px)", () => {
+    const sts = $$(".step-w").map((s, i) => ScrollTrigger.create({ trigger: s, start: "top 60%", end: "bottom 40%", onToggle: e => e.isActive && setStep(i) }));
+    return () => sts.forEach(s => s.kill());
+  });
+
+  /* studio + xp */
+  gsap.from(".studio", { y: 60, opacity: 0, duration: 1, ease: "expo.out", scrollTrigger: { trigger: ".studio", start: "top 88%" } });
+  gsap.to(".xp-bg", { xPercent: -18, ease: "none", scrollTrigger: { trigger: "#parcours", start: "top bottom", end: "bottom top", scrub: true } });
+
+  /* footer name */
+  const fn = $("#footName"); fn.innerHTML = [...fn.textContent].map(ch => `<span>${ch === " " ? "&nbsp;" : ch}</span>`).join("");
+  gsap.from("#footName span", { yPercent: 100, opacity: 0, duration: .9, stagger: .03, ease: "expo.out", scrollTrigger: { trigger: "#footName", start: "top 92%" } });
+
+  /* magnetic WhatsApp button */
+  if (FINE) $$(".magnet").forEach(m => {
+    const xTo = gsap.quickTo(m, "x", { duration: .5, ease: "elastic.out(1,.4)" }), yTo = gsap.quickTo(m, "y", { duration: .5, ease: "elastic.out(1,.4)" });
+    m.addEventListener("pointermove", e => { const r = m.getBoundingClientRect(); xTo((e.clientX - r.left - r.width / 2) * .25); yTo((e.clientY - r.top - r.height / 2) * .35); });
+    m.addEventListener("pointerleave", () => { xTo(0); yTo(0); });
+  });
+
+  /* pause marquee offscreen */
+  new IntersectionObserver(([en]) => $("#marq").style.animationPlayState = en.isIntersecting ? "running" : "paused").observe($(".marq"));
+
+  addEventListener("load", () => ScrollTrigger.refresh());
+  document.fonts && document.fonts.ready.then(() => ScrollTrigger.refresh());
+}
+
+/* deep link to a case study */
+const h = location.hash.slice(1);
+if (h && PROJECTS.some(p => p.id === h)) setTimeout(() => openCase(h), window.gsap && !RM ? 2400 : 0);
+})();
+</script>
